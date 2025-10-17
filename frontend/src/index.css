@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+  --primary-color: #3b82f6; /* Example: blue-500 */
+  --secondary-color: #10b981; /* Example: emerald-500 */
+  --accent-color: #f59e0b; /* Example: amber-500 */
+  --neutral-color: #6b7280; /* Example: gray-500 */
+  --danger-color: #ef4444; /* Example: red-500 */
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: 'Georgia', 'Times New Roman', Times, serif;
+  --font-mono: 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 17, 24, 39; /* Example: gray-900 */
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Base Layer Styles */
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  p {
+    @apply mb-4 leading-relaxed;
+  }
+
+  a {
+    @apply text-primary-color transition-colors duration-200 hover:underline;
+  }
+}
+
+/* Custom Reusable Component Classes */
+@layer components {
+  .btn {
+    @apply inline-block px-6 py-3 font-semibold text-white rounded-md shadow-md transition-transform duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+
+  .btn-primary {
+    @apply bg-primary-color hover:bg-blue-600 focus:ring-blue-500;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary-color hover:bg-emerald-600 focus:ring-emerald-500;
+  }
+
+  .btn-danger {
+    @apply bg-danger-color hover:bg-red-600 focus:ring-red-500;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent border border-primary-color text-primary-color hover:bg-primary-color hover:text-white;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden p-6;
+  }
+
+  .input-field {
+    @apply block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-primary-color focus:border-primary-color dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white;
+  }
+}
+
+/* Custom Utility Classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .content-container {
+    @apply container mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+}
